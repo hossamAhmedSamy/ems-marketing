@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import './globals.css';
 import { SiteHeader } from '../components/SiteHeader';
 import { SiteFooter } from '../components/SiteFooter';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: {
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SiteHeader />
         {children}
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
