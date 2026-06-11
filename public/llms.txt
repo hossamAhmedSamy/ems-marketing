@@ -1,0 +1,44 @@
+# EMS — Expense Management for Multi-Branch Businesses
+
+> EMS is a SaaS expense management platform for businesses that operate
+> multiple branches, stores or warehouses. It centralizes expense tracking,
+> promotions, approvals, custom roles and audit history in one mobile-first
+> app, with executive dashboards and an AI assistant for natural-language
+> reporting.
+
+## What EMS does
+
+- Multi-branch expense tracking: every expense belongs to a branch and a
+  category; branch managers see only the branches assigned to them.
+- Custom roles & permissions: five built-in roles (CEO, Admin, Branch
+  Manager, Data Entry, Finance) plus fully custom roles assembled from
+  granular permissions (e.g. a view-only CEO or a CFO who can approve and
+  delete expenses).
+- Executive dashboards: monthly trends, category and branch breakdowns,
+  month-over-month change, end-of-month projections and anomaly alerts when
+  a category or branch spikes above its usual spending.
+- Append-only audit log: every create, update and delete is recorded and
+  cannot be modified — enforced at the database level.
+- Promotions tracking: marketing campaigns and their costs live alongside
+  day-to-day expenses.
+- Mobile-first UI: designed for phones first, desktop second.
+
+## Plans
+
+- Free tier — no credit card required.
+- Pro and Ultimate tiers — new workspaces start with a 14-day Pro trial.
+- Pricing details: /pricing
+
+## Key pages
+
+- Home: /
+- Pricing: /pricing
+- Create a workspace: /signup
+- About: /about
+- Contact: /contact
+
+## Who it's for
+
+Retail chains, warehouses, distribution companies, restaurant groups,
+pharmacies, clinics — any business where money is spent across more than one
+location and the owner wants to see where it goes.
