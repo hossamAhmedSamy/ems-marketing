@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import { SiteHeader } from '../components/SiteHeader';
 import { SiteFooter } from '../components/SiteFooter';
 import { CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '../lib/site';
@@ -106,6 +107,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SiteHeader />
         {children}
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
