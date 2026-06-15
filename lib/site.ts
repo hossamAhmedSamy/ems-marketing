@@ -10,7 +10,9 @@ export const SITE_NAME = 'EMS';
 
 export const SITE_TITLE = 'EMS — Expense Management for Multi-Branch Businesses';
 
+// Kept under 160 chars so search engines don't truncate it; still within the
+// 80–200 range that reads well as an Open Graph description.
 export const SITE_DESCRIPTION =
-  'Track expenses, promotions and budgets across all your branches. Custom roles, append-only audit, executive dashboards. Built mobile-first for warehouse and retail businesses.';
+  'Track expenses, promotions and budgets across every branch. Custom roles, append-only audit and executive dashboards — built mobile-first for retail.';
 
 export const CONTACT_EMAIL = 'hossamahmed107@gmail.com';
