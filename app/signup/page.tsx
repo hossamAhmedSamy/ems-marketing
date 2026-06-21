@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -46,10 +46,50 @@ export default function SignupPage() {
     register,
     handleSubmit,
     setError,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
   const [done, setDone] = useState(false);
+
+  // Live workspace-slug availability against the backend, debounced.
+  const slug = watch('slug');
+  const [slugStatus, setSlugStatus] = useState<
+    { state: 'idle' | 'checking' | 'available' } | { state: 'unavailable'; reason: string }
+  >({ state: 'idle' });
+
+  useEffect(() => {
+    const s = (slug ?? '').trim().toLowerCase();
+    if (!s) {
+      setSlugStatus({ state: 'idle' });
+      return;
+    }
+    if (s.length < 2 || !/^[a-z0-9-]+$/.test(s)) {
+      setSlugStatus({ state: 'unavailable', reason: 'invalid_format' });
+      return;
+    }
+    setSlugStatus({ state: 'checking' });
+    const ctrl = new AbortController();
+    const id = setTimeout(async () => {
+      try {
+        const res = await fetch(`${apiUrl}/public/slug/check?slug=${encodeURIComponent(s)}`, {
+          signal: ctrl.signal,
+        });
+        const data = (await res.json()) as { available: boolean; reason?: string };
+        setSlugStatus(
+          data.available
+            ? { state: 'available' }
+            : { state: 'unavailable', reason: data.reason ?? 'taken' },
+        );
+      } catch {
+        // aborted (newer keystroke) or offline — leave the last state.
+      }
+    }, 400);
+    return () => {
+      clearTimeout(id);
+      ctrl.abort();
+    };
+  }, [slug, apiUrl]);
 
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
     const body = {
@@ -112,12 +152,24 @@ export default function SignupPage() {
           <Field label="Company name" error={errors.companyName?.message}>
             <Input placeholder="Acme Co" autoFocus {...register('companyName')} />
           </Field>
-          <Field
-            label="Workspace slug (optional)"
-            hint="We'll auto-generate one from your company name if you leave this blank."
-            error={errors.slug?.message}
-          >
+          <Field label="Workspace slug (optional)" error={errors.slug?.message}>
             <Input placeholder="acme" {...register('slug')} />
+            {slugStatus.state === 'idle' && (
+              <p className="text-xs text-slate-500">
+                We'll auto-generate one from your company name if you leave this blank.
+              </p>
+            )}
+            {slugStatus.state === 'checking' && (
+              <p className="text-xs text-slate-400">Checking availability…</p>
+            )}
+            {slugStatus.state === 'available' && (
+              <p className="text-xs text-emerald-600">
+                “{(slug ?? '').trim().toLowerCase()}” is available.
+              </p>
+            )}
+            {slugStatus.state === 'unavailable' && (
+              <p className="text-xs text-amber-600">{slugReason(slugStatus.reason)}</p>
+            )}
           </Field>
         </Section>
 
@@ -169,6 +221,13 @@ export default function SignupPage() {
       </form>
     </main>
   );
+}
+
+function slugReason(reason: string): string {
+  if (reason === 'invalid_format')
+    return 'Use lowercase letters, numbers and hyphens (2+ characters).';
+  if (reason === 'reserved') return 'That workspace name is reserved — pick another.';
+  return 'That workspace name is already taken — pick another.';
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
