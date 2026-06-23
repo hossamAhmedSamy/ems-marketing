@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Mail, MessageSquare, Rocket } from 'lucide-react';
 import { CONTACT_EMAIL } from '../../lib/site';
+import FeedbackForm from './FeedbackForm';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -37,18 +38,16 @@ export default function ContactPage() {
           <div className="mt-3 text-sm text-brand-700 break-all">{CONTACT_EMAIL}</div>
         </a>
 
-        <a
-          href={`mailto:${CONTACT_EMAIL}?subject=EMS%20feedback`}
-          className="rounded-xl border border-slate-200 bg-white p-5 hover:border-brand-200 hover:shadow-card transition block"
-        >
+        <div className="rounded-xl border border-slate-200 bg-white p-5">
           <div className="h-9 w-9 rounded-md bg-brand-50 text-brand-700 flex items-center justify-center">
             <MessageSquare className="h-5 w-5" />
           </div>
           <div className="mt-3 font-semibold text-slate-900">Feedback</div>
           <p className="mt-1 text-sm text-slate-600">
-            Found something rough? A feature you miss? Early feedback shapes the roadmap.
+            Found something rough? A feature you miss? Use the form below — early feedback
+            shapes the roadmap.
           </p>
-        </a>
+        </div>
 
         <div className="rounded-xl border border-slate-200 bg-white p-5">
           <div className="h-9 w-9 rounded-md bg-brand-50 text-brand-700 flex items-center justify-center">
@@ -64,6 +63,16 @@ export default function ContactPage() {
           >
             Create workspace
           </Link>
+        </div>
+      </div>
+
+      <div className="mt-12">
+        <h2 className="text-xl font-semibold text-slate-900">Send us a message</h2>
+        <p className="mt-1 text-sm text-slate-600 max-w-2xl">
+          Prefer a form? Drop it here and it lands straight in our inbox — no account needed.
+        </p>
+        <div className="mt-5 max-w-2xl">
+          <FeedbackForm />
         </div>
       </div>
     </main>
