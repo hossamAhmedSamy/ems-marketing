@@ -34,12 +34,22 @@ export function renderOgImage() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
-              fontSize: '36px',
-              fontWeight: 700,
             }}
           >
-            {SITE_NAME}
+            {/* EMS brand mark — circle with a rising chart arrow. */}
+            <svg width="46" height="46" viewBox="0 0 48 48" fill="none">
+              <g
+                fill="none"
+                stroke="#FFFFFF"
+                strokeWidth="3.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="24" cy="24" r="18.4" />
+                <path d="M12.6 29 L19.4 21.6 L25.8 25.9 L33.4 16.2" />
+                <path d="M27.8 16.2 L33.4 16.2 L33.4 21.8" />
+              </g>
+            </svg>
           </div>
           <div style={{ color: 'white', fontSize: '34px', fontWeight: 600 }}>
             {SITE_NAME}

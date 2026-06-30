@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, Receipt, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { APP_URL } from '../lib/site';
 
 const NAV = [
@@ -21,7 +21,7 @@ export function SiteHeader() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-semibold text-slate-900">
           <span className="h-8 w-8 rounded-md bg-brand flex items-center justify-center">
-            <Receipt className="h-4 w-4 text-white" />
+            <img src="/ems-mark-white.svg" alt="" className="h-5 w-5" />
           </span>
           EMS
         </Link>

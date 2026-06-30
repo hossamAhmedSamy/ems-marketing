@@ -6,7 +6,12 @@ export function SiteFooter() {
     <footer className="border-t border-slate-200 bg-surface-alt mt-20">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 grid grid-cols-2 md:grid-cols-5 gap-8 text-sm">
         <div className="col-span-2">
-          <div className="font-semibold text-slate-900">EMS</div>
+          <div className="flex items-center gap-2 font-semibold text-slate-900">
+            <span className="h-7 w-7 rounded-md bg-brand flex items-center justify-center">
+              <img src="/ems-mark-white.svg" alt="" className="h-4 w-4" />
+            </span>
+            EMS
+          </div>
           <p className="text-slate-500 mt-2 max-w-sm">
             Expense management for multi-branch and warehouse businesses. Custom roles,
             executive dashboards, and a tamper-proof audit trail — mobile-first.
