@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Mail, MessageSquare, Rocket } from 'lucide-react';
+import { Mail, MessageSquare, Rocket, Sparkles } from 'lucide-react';
 import { CONTACT_EMAIL } from '../../lib/site';
 import FeedbackForm from './FeedbackForm';
 
@@ -63,6 +63,30 @@ export default function ContactPage() {
           >
             Create workspace
           </Link>
+        </div>
+      </div>
+
+      {/* Custom / enterprise — tailored systems built to fit. */}
+      <div className="mt-10 rounded-2xl bg-sidebar text-white p-6 md:p-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,70,229,0.30),transparent_60%)] pointer-events-none" />
+        <div className="relative flex flex-col md:flex-row md:items-center gap-5">
+          <div className="flex-1">
+            <div className="inline-flex items-center gap-2 text-brand-300 text-xs font-medium">
+              <Sparkles className="h-4 w-4" /> Custom &amp; enterprise
+            </div>
+            <h2 className="mt-2 text-xl md:text-2xl font-bold">Want a customized system?</h2>
+            <p className="mt-1 text-slate-300 max-w-2xl text-sm">
+              We tailor EMS to your workflow, build the features you need, and can run it on your
+              own database — with dedicated onboarding and support. Tell us what you're after and
+              we'll scope it with you.
+            </p>
+          </div>
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=EMS%20custom%20system`}
+            className="inline-flex h-11 items-center px-6 rounded-md bg-white text-slate-900 font-medium hover:bg-slate-100 transition flex-shrink-0"
+          >
+            Email us about a custom build
+          </a>
         </div>
       </div>
 

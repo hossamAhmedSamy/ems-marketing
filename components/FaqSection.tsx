@@ -3,7 +3,11 @@ import { ChevronDown } from 'lucide-react';
 const FAQS = [
   {
     q: 'Is there really a free plan?',
-    a: 'Yes. The Free tier needs no credit card and doesn’t expire. New workspaces also get a 14-day trial of Pro so you can see the full feature set before deciding.',
+    a: 'Yes. The Free tier needs no credit card and doesn’t expire — 2 branches, up to 5 users and 250 expenses a month, plus promotions and the append-only audit log. You can even connect your own AI agent over MCP at no cost.',
+  },
+  {
+    q: 'Can I use AI with EMS?',
+    a: 'Two ways. On Free you connect your own AI agent (Claude, ChatGPT or any MCP client) and ask about your data in plain language. Pro adds a built-in AI assistant — chat, insights and auto-categorization — with no setup.',
   },
   {
     q: 'How do branch permissions work?',

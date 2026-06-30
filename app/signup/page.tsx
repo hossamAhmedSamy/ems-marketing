@@ -140,7 +140,7 @@ export default function SignupPage() {
       <div className="text-center max-w-xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Create your workspace</h1>
         <p className="mt-2 text-slate-600">
-          Free tier with a 14-day Pro trial. You'll be your company's CEO account.
+          Free forever — no credit card. You'll be your company's CEO account.
         </p>
       </div>
 

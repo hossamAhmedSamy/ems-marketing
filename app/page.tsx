@@ -96,7 +96,7 @@ export default function LandingPage() {
                 href="/signup"
                 className="inline-flex h-11 items-center px-6 rounded-md bg-brand text-white font-medium hover:bg-brand-700 shadow-card transition"
               >
-                Start your free trial
+                Start free
               </Link>
               <Link
                 href="/pricing"
@@ -106,7 +106,7 @@ export default function LandingPage() {
               </Link>
             </div>
             <p className="mt-3 text-xs text-slate-500">
-              No credit card required for the Free tier. 14-day trial of Pro on signup.
+              No credit card required. Free forever — and connect your own AI agent over MCP.
             </p>
           </div>
           <div className="lg:pl-4">
@@ -151,9 +151,16 @@ export default function LandingPage() {
             </div>
           ))}
         </div>
-        <p className="mt-6 text-sm text-slate-500 inline-flex items-center gap-2">
-          <Bot className="h-4 w-4 text-brand" />
-          Coming soon: ask the AI assistant &ldquo;what did Cairo spend last month?&rdquo; and get an answer.
+        <p className="mt-6 text-sm text-slate-600 inline-flex items-start gap-2">
+          <Bot className="h-4 w-4 text-brand mt-0.5 flex-shrink-0" />
+          <span>
+            Ask &ldquo;what did Cairo spend last month?&rdquo; — the built-in AI assistant answers
+            on Pro, or connect{' '}
+            <Link href="/mcp" className="text-brand-700 hover:underline">
+              your own AI agent over MCP
+            </Link>{' '}
+            on the Free plan.
+          </span>
         </p>
       </section>
 
@@ -196,7 +203,7 @@ export default function LandingPage() {
         </div>
         <ol className="mt-10 grid md:grid-cols-3 gap-5">
           <Step n={1} title="Create your workspace">
-            Pick a company name. We provision your tenant with a 14-day Pro trial.
+            Pick a company name and we provision your free workspace instantly — no credit card.
           </Step>
           <Step n={2} title="Invite your team">
             Use the built-in roles or create your own. Assign managers to their branches —

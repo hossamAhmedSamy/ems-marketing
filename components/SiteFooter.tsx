@@ -16,8 +16,8 @@ export function SiteFooter() {
           <div className="font-medium text-slate-900">Product</div>
           <ul className="mt-2 space-y-1 text-slate-600">
             <li><Link href="/#features" className="hover:text-slate-900">Features</Link></li>
-            <li><Link href="/#industries" className="hover:text-slate-900">Industries</Link></li>
             <li><Link href="/pricing" className="hover:text-slate-900">Pricing</Link></li>
+            <li><Link href="/mcp" className="hover:text-slate-900">Connect your AI agent</Link></li>
             <li><Link href="/signup" className="hover:text-slate-900">Start free</Link></li>
           </ul>
         </div>

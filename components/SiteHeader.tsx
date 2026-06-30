@@ -7,8 +7,8 @@ import { APP_URL } from '../lib/site';
 
 const NAV = [
   { href: '/#features', label: 'Features' },
-  { href: '/#industries', label: 'Industries' },
   { href: '/pricing', label: 'Pricing' },
+  { href: '/mcp', label: 'AI agent' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
